@@ -14,5 +14,5 @@ def ping(hostname):
     stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate() # , shell=True
     print(output, error)
     """
-    c = delegator.run('ping -n 2 ' + hostname, block=False)
+    c = delegator.run('ping -c 2 ' + hostname, block=False)
     return c
