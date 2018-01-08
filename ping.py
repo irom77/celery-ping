@@ -2,6 +2,6 @@ import subprocess
 
 def ping(hostname):
     (output, error) = subprocess.Popen('ping ' + hostname, 
-    stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).communicate()
+    stdout=subprocess.STDOUT, stderr=subprocess.STDOUT, shell=True).communicate()
     print(output, error)
 
