@@ -10,5 +10,5 @@ import subprocess
 @app.task
 def ping(hostname):
     (output, error) = subprocess.Popen('/bin/ping ' + hostname, 
-    stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
+    stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True).communicate()
     print(output, error)
