@@ -9,6 +9,6 @@ def add(x, y):
 import subprocess
 @app.task
 def ping(hostname):
-    (output, error) = subprocess.Popen('ping ' + hostname, 
+    (output, error) = subprocess.Popen('/bin/ping ' + hostname, 
     stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()
     print(output, error)
