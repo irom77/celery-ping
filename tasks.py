@@ -30,5 +30,5 @@ if __name__ == '__main__':
 
     results = [ping.delay(host) for host in args.hosts]
     for result in results:
-        return_code = result.get()
+        return_code = result.get(timeout=1)
         print(return_code)
