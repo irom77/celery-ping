@@ -28,7 +28,7 @@ if __name__ == '__main__':
     parser.add_argument('pairs', type=str, nargs='+')
     args = parser.parse_args()
 
-    results = [ping.delay(pair) for pair in args.pairs]
+    results = [ping.delay(host) for host in args.hosts]
     for result in results:
-        pair, rate = result.get()
-        print(pair, rate)
+        host, rate = result.get()
+        print(host, rate)
