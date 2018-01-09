@@ -1,12 +1,15 @@
 from celery import Celery
+# import config
+import delegator
 
-app = Celery('tasks', broker='pyamqp://guest@localhost//')
+app = Celery('tasks')
+app.config_from_object('config')
 
 @app.task
 def add(x, y):
     return x + y
 
-import delegator
+
 @app.task
 def ping(hostname):
     """
@@ -16,3 +19,15 @@ def ping(hostname):
     """
     c = delegator.run('ping -c 2 ' + hostname, block=False)
     return c
+
+if __name__ == '__main__':
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('pairs', type=str, nargs='+')
+    args = parser.parse_args()
+
+    results = [ping.delay(pair) for pair in args.pairs]
+    for result in results:
+        pair, rate = result.get()
+        print(pair, rate)
