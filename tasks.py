@@ -29,6 +29,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     results = [ping.delay(host) for host in args.hosts]
+    total = 0
     for result in results:
         return_code = result.get(timeout=1)
-        print(return_code)
+        if return_code == 0:
+            total++ 
+        print(total)
