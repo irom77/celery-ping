@@ -25,7 +25,7 @@ if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('pairs', type=str, nargs='+')
+    parser.add_argument('hosts', type=str, nargs='+')
     args = parser.parse_args()
 
     results = [ping.delay(host) for host in args.hosts]
