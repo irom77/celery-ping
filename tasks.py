@@ -34,4 +34,4 @@ if __name__ == '__main__':
         return_code = result.get(timeout=1)
         if return_code == 0:
             total++ 
-        print(total)
+    print(total)
