@@ -32,6 +32,7 @@ if __name__ == '__main__':
     total = 0
     for result in results:
         return_code = result.get() # timeout=1
+        print(return_code)
         if return_code == 0:
             total = total + 1
     print(total)
