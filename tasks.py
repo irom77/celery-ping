@@ -18,7 +18,8 @@ def ping(hostname):
     print(output, error)
     """
     c = delegator.run('ping -c 2 -W 1 ' + hostname, block=False)
-    return c
+    c.block()
+    return c # return_code
 
 if __name__ == '__main__':
     import argparse
