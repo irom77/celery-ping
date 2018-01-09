@@ -33,5 +33,5 @@ if __name__ == '__main__':
     for result in results:
         return_code = result.get(timeout=1)
         if return_code == 0:
-            total++ 
+            total = total + 1
     print(total)
