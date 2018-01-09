@@ -1,2 +1,2 @@
-BROKER_URL = 'pyamqp://guest@10.29.95.9//'
+BROKER_URL = 'pyamqp://netlab:balnet@10.29.95.9//'
 CELERY_RESULT_BACKEND = 'rpc://'
